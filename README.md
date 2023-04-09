@@ -1,6 +1,6 @@
 # InverseKinContinuumRoboter
 
-A model for a continuum robot powered by external motors attached to strings. The robot uses 4 motors for 2 segments. Segment 2 bends the entire robot and segment 1 the lower half. This class provides an approximation of the inverse kinematic
+A model for a continuum robot powered by external motors attached to strings. The robot uses 4 motors for 2 segments. Segment 2 bends the entire robot and segment 1 the lower half. This class provides an approximation of the inverse kinematic by using gradient descent
  
  
  ## InverseCalc
