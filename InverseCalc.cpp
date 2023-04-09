@@ -22,6 +22,12 @@ int main()
 //Inverse Kinematic Mode
 
 /**/
+   
+    int motorpos1;
+    int motorpos2;
+    bool warning = false;
+   
+   
     while (true) {
         std::cout <<"  enter coordinates x,y,z\n";
         std::cin >> x;
@@ -48,6 +54,29 @@ int main()
         std::cout << MotorPos[3] << "  MotorPos2\n";
         std::cout << MotorPos[4] << "  MotorPos2\n";
         std::cout << testPoint[5] << "  Angle\n";
+       
+        motorpos1 = MotorPos[0];
+        motorpos2 = MotorPos[1];
+
+        if (motorpos1 < 500) {
+            motorpos1 = 500;
+            warning = true;
+        }
+        if (motorpos2 < 500) {
+            motorpos2 = 500;
+            warning = true;
+        }
+        if (motorpos1 > 2500) {
+            motorpos1 = 2500;
+            warning = true;
+        }
+        if (motorpos2 > 2500) {
+            motorpos2 = 2500;
+            warning = true;
+        }
+        if (warning == true) {
+            std::cout << "  Maximum motor range exceeded\n";
+        }
 
     }
 
@@ -58,7 +87,7 @@ int main()
 
 /*
 
-    Rcontroller test1(1, 2);
+  
 
 
    
@@ -92,7 +121,7 @@ int main()
             motorpos1 = 500;
             warning = true;
         }
-        if (motorpos1 < 500) {
+        if (motorpos2 < 500) {
             motorpos2 = 500;
             warning = true;
         }
