@@ -1,8 +1,10 @@
 # InverseKinContinuumRoboter
+
+A model for a continuum robot powered by external motors attached to strings. The robot uses 4 motors for 2 segments. Segment 2 bends the entire robot and segment 1 the lower half. This class provides an approximation of the inverse kinematic
  
  
  ## InverseCalc
- This class contains the main. The two modes are "position to motorpos" or "curvature to motor pos"
+ This class contains the main. The two modes are "position to motorpos" or "curvature to motor pos". In the main width and length of the robot need to be specified.
  
  ## RControl
  A placeholder for ROS or similar systems. Can be ignored and is only called in the main as test
