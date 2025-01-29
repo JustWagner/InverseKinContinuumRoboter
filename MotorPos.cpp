@@ -9,13 +9,13 @@
 //Also calculates influence of curv1 on curv2 and vice versa
 int* GetCableLength(double curv1, double curv2, int direction1, int direction2, int angle, const int width, const int legnth) {
 	static int Cable[2];
-
+	//This part needs to be calibrated for each specific robot!
 	double curv1_1 = 1 / (1 / curv1 - 4.5);
 	double curv2_1 = 1 / (1 / curv2 - 4.5);
 
 
 
-
+	//This just gives the direction in which the robot is supposed to bend
 	if (direction1 == direction2) {
 		curv1_1 = curv1_1 - curv2_1;
 		if (curv1_1 < 0) {
@@ -74,7 +74,7 @@ int* GetMotorPos(double curv1, double curv2, int direction1, int direction2, int
 	int motor2;
 	int motor3;
 	int motor4;
-
+	//Here the 2D plane is projected back onto a 3D point using the angles
 	motor1 = (((legnth / 2) - cable_length[0]) / 0.017) * cos(angle*2*M_PI/360);
 	motor2 = (((legnth / 2) - cable_length[0]) / 0.017) * sin(angle * 2 * M_PI / 360);
 	motor3 = (((legnth)-cable_length[1]) / 0.012) * cos(angle * 2 * M_PI / 360);
