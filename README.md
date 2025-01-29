@@ -1,6 +1,6 @@
 # InverseKinContinuumRoboter
 
-A model for a continuum robot powered by external motors attached to strings. The robot uses 4 motors for 2 segments. Segment 2 bends the entire robot and segment 1 the lower half. This class provides an approximation of the inverse kinematic by using gradient descent
+A model for a continuum robot powered by external motors attached to strings. The robot uses 4 motors for 2 segments. Segment 2 bends the entire robot and segment 1 the lower half. This class provides an approximation of the inverse kinematic by using gradient descent. The model only provides a simplified solution that bends the robot on a 2D plane to reach the selected point. Orientation of the end effector is ignored.
  
  
  ## InverseCalc
@@ -11,10 +11,11 @@ A model for a continuum robot powered by external motors attached to strings. Th
  
  ## AngleCalc
  
- Converts a 3D coordinate into a 2D coordinate with an angle. To simplify the influence of the two segments with each other we move the robot in a single plane. 
+ Converts a 3D coordinate into a 2D coordinate with an angle. To simplify the influence of the two segments with each other we move the robot in a single plane.
  
  ## RadiusCalc
 Contains 3 classes. A forward kinematic, a gradient descent loop and a class which calls the loop from different starting point to avoid local minima. Afterwards the curvatures with the lowest distance to the target point are returned.
  
  ## MotorPos
- This class converts curvatures into cable lengths and then motor positions. Needs to be calibrated for each robot
+ This class converts curvatures and the angle into cable lengths and then motor positions. The angle is realized by distributing the required bending onto the 4 motors. This is achieved using cosinus and sinus.
+ This class might require some calibration for any specific robot, since the robot this project was designed was still in early development and the strings changed positions throughout.
